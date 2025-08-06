@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>เลือกอาหารตามประเภท</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>วันนี้กินอะไรดี?</h1>
+        <p>เลือกประเภทอาหารที่คุณต้องการ แล้วเราจะแนะนำเมนูให้</p>
+    </header>
+
+    <main>
+        <div class="controls">
+            <button class="food-button" data-type="fast-food">อาหารจานด่วน</button>
+            <button class="food-button" data-type="healthy">อาหารเพื่อสุขภาพ</button>
+            <button class="food-button" data-type="vegetarian">อาหารมังสวิรัติ</button>
+        </div>
+
+        <div class="result-box" id="result-box">
+            <h2 id="result-title">เลือกประเภทอาหารที่คุณชอบ</h2>
+            <p id="result-food">แล้วเมนูจะปรากฏที่นี่</p>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 แนะนำอาหาร</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
