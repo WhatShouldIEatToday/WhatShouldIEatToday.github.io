@@ -1,142 +1,124 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // กำหนดเมนูอาหารในแต่ละประเภท
+    // ปรับโครงสร้างข้อมูลใหม่ โดยเพิ่ม subcategory
     const foodData = {
         'fast-food': [
-            'เบอร์เกอร์',
-            'พิซซ่า',
-            'ไก่ทอด',
-            'ข้าวผัดกะเพรา',
-            'ข้าวผัดคะน้าหมูกรอบ',
-            'ข้าวราดแกง',
-            'ข้าวผัด' ,
-            'ข้าวไข่เจียว' ,
-            'ข้าวหมูกระเทียม' ,
-            'ข้าวมันไก่' ,
-            'ข้าวขาหมู' ,
-            'ข้าวหมูแดง' ,
-            'ข้าวหน้าเป็ด' ,
-            'ข้าวหมกไก่' ,
-            'ข้าวคลุกกะปิ' ,
-            'ก๋วยเตี๋ยว' ,
-            'ราดหน้า' ,
-            'ผัดซีอิ้ว' ,
-            'ผัดไทย' ,
-            'ขนมจีนน้ำยา' ,
-            'บะหมี่เกี๊ยว' ,
-            'สปาเกตตี' ,
-            'มาม่าผัด' ,
-            'ข้าวซอย' ,
-            'ต้มยำ' ,
-            'เล้ง' ,
-            'ข้าวต้ม' ,
-            'โจ๊ก' ,
-            'ก๋วยเตี๋ยวหลอด' ,
-            'ยำ' ,
-            'หอยทอด' ,
-            'ลาบ' ,
-            'ส้มตำ' ,
-            'สเต๊ก' ,
-            'ไก่ย่าง' ,
-            'คอหมูย่าง' ,
-            'หมูทอด' ,
-            'ข้าวหน้าไก่เทอริยากิ' ,
-            'ข้าวหน้าปลาซาบะย่าง' ,
-            'ข้าวแกงกะหรี่' ,
-            'สุกี้แห้ง/น้ำ' ,
-            'แกงใต้' ,
-            'แกงเขียวหวาน' ,
-            'ข้าวผัดน้ำพริกปลาทู' ,
-            'ผัดฉ่า' ,
-            'พะแนง' ,
-            'ราเมน' ,
-            'ข้าวผัดกิมจิ' ,
-            'ต็อกบกกี' ,
-            'น้ำพริก' ,
-            'แกงส้มชะอมไข่' ,
-            'ข้าวหน้าปลาไหล' ,
-            'ลาซานญ่า' ,
-            'พาสต้า' ,
-            'ต้มจืด' ,
+            { name: 'เบอร์เกอร์', subcategory: 'general' },
+            { name: 'พิซซ่า', subcategory: 'general' },
+            { name: 'ไก่ทอด', subcategory: 'general' },
+            { name: 'ข้าวผัดกะเพรา', subcategory: 'rice' },
+            { name: 'ข้าวผัดคะน้าหมูกรอบ', subcategory: 'rice' },
+            { name: 'ข้าวราดแกง', subcategory: 'rice' },
+            { name: 'ข้าวผัด', subcategory: 'rice' },
+            { name: 'ข้าวไข่เจียว', subcategory: 'rice' },
+            { name: 'ข้าวหมูกระเทียม', subcategory: 'rice' },
+            { name: 'ข้าวมันไก่', subcategory: 'rice' },
+            { name: 'ข้าวขาหมู', subcategory: 'rice' },
+            { name: 'ข้าวหมูแดง', subcategory: 'rice' },
+            { name: 'ข้าวหน้าเป็ด', subcategory: 'rice' },
+            { name: 'ข้าวหมกไก่', subcategory: 'rice' },
+            { name: 'ข้าวคลุกกะปิ', subcategory: 'rice' },
+            { name: 'ก๋วยเตี๋ยว', subcategory: 'noodles' },
+            { name: 'ราดหน้า', subcategory: 'noodles' },
+            { name: 'ผัดซีอิ๊ว', subcategory: 'noodles' },
+            { name: 'ผัดไทย', subcategory: 'noodles' },
+            { name: 'ขนมจีนน้ำยา', subcategory: 'noodles' },
+            { name: 'บะหมี่เกี๊ยว', subcategory: 'noodles' },
+            { name: 'สปาเกตตี', subcategory: 'noodles' },
+            { name: 'มาม่าผัด', subcategory: 'noodles' },
+            { name: 'ข้าวซอย', subcategory: 'noodles' },
+            { name: 'ราเมน', subcategory: 'noodles' },
+            { name: 'พาสต้า', subcategory: 'noodles' },
+            { name: 'ต้มยำ', subcategory: 'general' },
+            { name: 'เล้ง', subcategory: 'general' },
+            { name: 'ยำ', subcategory: 'general' },
+            { name: 'หอยทอด', subcategory: 'general' },
+            { name: 'ลาบ', subcategory: 'general' },
+            { name: 'ส้มตำ', subcategory: 'general' },
+            { name: 'สเต๊ก', subcategory: 'general' },
+            { name: 'ไก่ย่าง', subcategory: 'general' },
+            { name: 'คอหมูย่าง', subcategory: 'general' },
         ],
         'healthy': [
-            'สลัดผักอกไก่',
-            'ข้าวกล้องกับปลาเผา',
-            'แกงส้มผักรวม',
-            'ซุปผัก',
-            'ข้าวอกไก่ย่างกับข้าวไรซ์เบอร์รี่' ,
-            'ข้าวต้มปลา' ,
-            'สลัดโรลอกไก่' ,
-            'ปลานึ่งซีอิ๊ว' ,
-            'ต้มจืดเต้าหู้หมูสับ' ,
-            'ยำอกไก่ย่าง' ,
-            'ไข่ต้ม' ,
-            'ยำไข่ต้มยางมะตูม' ,
-            'ข้าวไข่คน' ,
-            'สลัดทูน่า' ,
-            'ข้าวหน้าลาบอกไก่' ,
-            'โจ๊กข้าวโอ๊ตไก่สับ' ,
-            'ข้าวกล้องผัดไข่' ,
-            'ผักโขมอบไข่' ,
-            'น้ำพริกกับผักสด' ,
-            'ขนมปังโฮลวีตกับอะโวคาโด' ,
-            'ข้าวกล้องกับสเต็กหมู' ,
-            'ต้มยำไก่ใส่เห็ด' ,
-            'ผัดฝักทองใส่ไข่' ,
-            'ยำเส้นแก้วใส่เห็ด' ,
-            'ต้มจับฉ่าย' ,
-            'ข้าวไก่กระเทียม' ,
-            'ผัดเห็ดรวม' ,
-            'ผัดบวบ' ,
-            'ผัดวุ้นเส้น' ,
-            'แกงเลียง' ,
-            'กะเพราเห็ด' ,
+            { name: 'สลัดผักอกไก่', subcategory: 'general' },
+            { name: 'ข้าวกล้องกับปลาเผา', subcategory: 'rice' },
+            { name: 'แกงส้มผักรวม', subcategory: 'general' },
+            { name: 'ซุปผัก', subcategory: 'general' },
+            { name: 'ข้าวอกไก่ย่างกับข้าวไรซ์เบอร์รี่', subcategory: 'rice' },
+            { name: 'ข้าวต้มปลา', subcategory: 'rice' },
+            { name: 'สลัดโรลอกไก่', subcategory: 'general' },
+            { name: 'ปลานึ่งซีอิ๊ว', subcategory: 'general' },
+            { name: 'ต้มจืดเต้าหู้หมูสับ', subcategory: 'general' },
+            { name: 'ยำอกไก่ย่าง', subcategory: 'general' },
+            { name: 'ไข่ต้ม', subcategory: 'general' },
+            { name: 'ผัดวุ้นเส้น', subcategory: 'noodles' },
+            { name: 'ยำเส้นแก้วใส่เห็ด', subcategory: 'noodles' },
         ],
         'vegetarian': [
-            'ผัดผักรวมมิตร',
-            'เต้าหู้ทอดราดซอส',
-            'แกงเขียวหวานมังสวิรัติ',
-            'ลาบเห็ด',
-            'สปาเก็ตตี้ซอสมะเขือเทศ' ,
-            'สลัดผักรวม' ,
-            'แกงส้มมังสวิรัติ' ,
-            'ข้าวผัดผัก' ,
-            'ต้มยำเห็ด' ,
-            'ผัดผักบุ้งเต้าหู้' ,
-            'ขนมจีนน้ำยามังสวิรัติ' ,
-            'กะเพราเห็ด' ,
-            'แกงเขียวหวานผัก' ,
-            'ซุปฝักทอง' ,
-            'ข้าวกล้องผัดเต้าหู้' ,
-            'เต้าหู้ย่างมังสวิรัติ' ,
-            'พาสต้าผักซอสโหระพา' ,
-            'มะเขือยาวยัดไส้ผัก' ,
-            'พิซซ่ามังสวิรัติ' ,
-            'น้ำพริกผัก' ,
-            
-            
+            { name: 'ผัดผักรวมมิตร', subcategory: 'general' },
+            { name: 'เต้าหู้ทอดราดซอส', subcategory: 'general' },
+            { name: 'แกงเขียวหวานมังสวิรัติ', subcategory: 'general' },
+            { name: 'ลาบเห็ด', subcategory: 'general' },
+            { name: 'สปาเก็ตตี้ซอสมะเขือเทศ', subcategory: 'noodles' },
+            { name: 'สลัดผักรวม', subcategory: 'general' },
+            { name: 'ข้าวผัดผัก', subcategory: 'rice' },
+            { name: 'ต้มยำเห็ด', subcategory: 'general' },
+            { name: 'ขนมจีนน้ำยามังสวิรัติ', subcategory: 'noodles' },
+            { name: 'กะเพราเห็ดราดข้าว', subcategory: 'rice' },
         ]
     };
 
     // อ้างอิงถึงส่วนต่างๆ ใน HTML
-    const foodButtons = document.querySelectorAll('.food-button');
+    const mainButtons = document.querySelectorAll('#main-controls .food-button');
+    const subcategoryControls = document.getElementById('subcategory-controls');
+    const subButtons = document.querySelectorAll('.sub-button');
     const resultTitle = document.getElementById('result-title');
     const resultFood = document.getElementById('result-food');
 
-    // ฟังก์ชันสำหรับสุ่มเมนู
-    function getRandomFood(type) {
-        const foodList = foodData[type];
-        const randomIndex = Math.floor(Math.random() * foodList.length);
-        return foodList[randomIndex];
+    let currentMainCategory = null;
+
+    // ฟังก์ชันสำหรับสุ่มเมนูที่ปรับปรุงใหม่
+    function getRandomFood(mainCategory, subCategory) {
+        let foodList = foodData[mainCategory];
+
+        // กรองรายการอาหารตามประเภทย่อย
+        let filteredList;
+        if (subCategory === 'all') {
+            filteredList = foodList;
+        } else {
+            filteredList = foodList.filter(food => food.subcategory === subCategory);
+        }
+
+        // ตรวจสอบว่ามีรายการอาหารในประเภทที่เลือกหรือไม่
+        if (filteredList.length === 0) {
+            return 'ไม่พบเมนูในประเภทนี้';
+        }
+
+        const randomIndex = Math.floor(Math.random() * filteredList.length);
+        return filteredList[randomIndex].name; // คืนค่าเฉพาะชื่ออาหาร
     }
 
-    // เพิ่ม event listener ให้กับปุ่มทุกปุ่ม
-    foodButtons.forEach(button => {
+    // เพิ่ม event listener ให้กับปุ่มหลัก
+    mainButtons.forEach(button => {
         button.addEventListener('click', (event) => {
-            const foodType = event.target.dataset.type; // ดึงค่าจาก data-type
-            const randomFood = getRandomFood(foodType);
+            currentMainCategory = event.target.dataset.type; // เก็บประเภทหลักที่เลือก
+            subcategoryControls.style.display = 'flex'; // แสดงปุ่มประเภทย่อย
+            
+            // อัปเดตข้อความเพื่อบอกให้ผู้ใช้เลือกต่อ
+            resultTitle.textContent = 'ยอดเยี่ยม! ทีนี้เลือกประเภทย่อย';
+            resultFood.textContent = '...';
+        });
+    });
+
+    // เพิ่ม event listener ให้กับปุ่มประเภทย่อย
+    subButtons.forEach(button => {
+        button.addEventListener('click', (event) => {
+            if (!currentMainCategory) return; // ป้องกันการคลิกก่อนเลือกประเภทหลัก
+
+            const subType = event.target.dataset.subtype; // ดึงค่าจาก data-subtype
+            const randomFood = getRandomFood(currentMainCategory, subType);
 
             // แสดงผลลัพธ์
-            resultTitle.textContent = `เมนูที่แนะนำสำหรับคุณคือ:`;
+            resultTitle.textContent = 'เมนูที่แนะนำสำหรับคุณคือ:';
             resultFood.textContent = randomFood;
         });
     });

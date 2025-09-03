@@ -14,10 +14,17 @@
     </header>
 
     <main>
-        <div class="controls">
-            <button class="food-button" data-type="fast-food">อาหารจานด่วน</button>
+        <div class="controls" id="main-controls">
+            <button class="food-button" data-type="fast-food">อาหารทั่วไป</button>
             <button class="food-button" data-type="healthy">อาหารเพื่อสุขภาพ</button>
             <button class="food-button" data-type="vegetarian">อาหารมังสวิรัติ</button>
+        </div>
+
+        <div class="controls" id="subcategory-controls" style="display: none;">
+            <button class="food-button sub-button" data-subtype="all">ทั้งหมด</button>
+            <button class="food-button sub-button" data-subtype="rice">ประเภทข้าว</button>
+            <button class="food-button sub-button" data-subtype="noodles">ประเภทเส้น</button>
+            <button class="food-button sub-button" data-subtype="general">อื่นๆ</button>
         </div>
 
         <div class="result-box" id="result-box">

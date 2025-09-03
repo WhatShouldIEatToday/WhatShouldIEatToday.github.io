@@ -43,6 +43,11 @@ main {
     margin-bottom: 2rem;
 }
 
+/* เพิ่ม CSS สำหรับกลุ่มปุ่มย่อย */
+#subcategory-controls {
+    margin-top: 1.5rem;
+}
+
 .food-button {
     background-color: #fff;
     border: 2px solid #5d9283;
