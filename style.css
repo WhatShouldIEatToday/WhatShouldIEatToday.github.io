@@ -43,10 +43,10 @@ main {
     margin-bottom: 2rem;
 }
 
-/* เพิ่ม CSS สำหรับกลุ่มปุ่มย่อย */
-#subcategory-controls {
+/* ลบ #subcategory-controls margin-top ออก เพราะจะแสดงแทนที่กัน */
+/* #subcategory-controls {
     margin-top: 1.5rem;
-}
+} */
 
 .food-button {
     background-color: #fff;
@@ -66,6 +66,21 @@ main {
     transform: translateY(-3px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
+/* สไตล์สำหรับปุ่มย้อนกลับ */
+.return-button {
+    background-color: #f0ad4e; /* สีส้ม */
+    border-color: #f0ad4e;
+    color: white;
+    margin-top: 1rem; /* ให้มีระยะห่างจากปุ่มย่อยอื่นๆ */
+}
+
+.return-button:hover {
+    background-color: #ec971f; /* สีส้มเข้มขึ้นเมื่อ hover */
+    border-color: #ec971f;
+    color: white;
+}
+
 
 .result-box {
     background-color: #fff;
@@ -103,6 +118,6 @@ footer {
         font-size: 2rem;
     }
     .food-button {
-        width: 100%;
+        width: 100%; /* ทำให้ปุ่มเต็มความกว้างใน mobile */
     }
 }

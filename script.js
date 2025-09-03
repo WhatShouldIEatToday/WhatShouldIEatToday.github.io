@@ -68,9 +68,11 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // อ้างอิงถึงส่วนต่างๆ ใน HTML
+    const mainControls = document.getElementById('main-controls'); // เปลี่ยนเป็นอ้างอิง div โดยตรง
     const mainButtons = document.querySelectorAll('#main-controls .food-button');
     const subcategoryControls = document.getElementById('subcategory-controls');
     const subButtons = document.querySelectorAll('.sub-button');
+    const returnButton = document.getElementById('return-button'); // อ้างอิงปุ่มย้อนกลับ
     const resultTitle = document.getElementById('result-title');
     const resultFood = document.getElementById('result-food');
 
@@ -97,12 +99,22 @@ document.addEventListener('DOMContentLoaded', () => {
         return filteredList[randomIndex].name; // คืนค่าเฉพาะชื่ออาหาร
     }
 
+    // ฟังก์ชันสำหรับรีเซ็ตหน้าจอไปสถานะเริ่มต้น
+    function resetToInitialState() {
+        mainControls.style.display = 'flex'; // แสดงปุ่มหลัก
+        subcategoryControls.style.display = 'none'; // ซ่อนปุ่มย่อย
+        currentMainCategory = null; // รีเซ็ตประเภทหลักที่เลือก
+        resultTitle.textContent = 'เลือกประเภทอาหารที่คุณชอบ';
+        resultFood.textContent = 'แล้วเมนูจะปรากฏที่นี่';
+    }
+
     // เพิ่ม event listener ให้กับปุ่มหลัก
     mainButtons.forEach(button => {
         button.addEventListener('click', (event) => {
             currentMainCategory = event.target.dataset.type; // เก็บประเภทหลักที่เลือก
+            mainControls.style.display = 'none'; // ซ่อนปุ่มหลัก
             subcategoryControls.style.display = 'flex'; // แสดงปุ่มประเภทย่อย
-            
+
             // อัปเดตข้อความเพื่อบอกให้ผู้ใช้เลือกต่อ
             resultTitle.textContent = 'ยอดเยี่ยม! ทีนี้เลือกประเภทย่อย';
             resultFood.textContent = '...';
@@ -122,4 +134,12 @@ document.addEventListener('DOMContentLoaded', () => {
             resultFood.textContent = randomFood;
         });
     });
+
+    // เพิ่ม event listener ให้กับปุ่มย้อนกลับ
+    returnButton.addEventListener('click', () => {
+        resetToInitialState();
+    });
+
+    // เรียกใช้ resetToInitialState เมื่อโหลดหน้าครั้งแรก
+    resetToInitialState();
 });
